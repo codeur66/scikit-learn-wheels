@@ -3,9 +3,9 @@ language:
 env:
   global: LATEST_TAG=1
   matrix:
-  - VERSION=2.7.8 NUMPY_VERSION=1.6.0
-  - VERSION=3.3.5 NUMPY_VERSION=1.7.1
-  - VERSION=3.4.1 NUMPY_VERSION=1.7.1
+  - VERSION=2.7.8 NUMPY_VERSION=1.6.0 BUCKET=wheels
+  - VERSION=3.3.5 NUMPY_VERSION=1.7.1 BUCKET=wheels
+  - VERSION=3.4.1 NUMPY_VERSION=1.7.1 BUCKET=wheels
 install:
 - source terryfy/travis_tools.sh
 - get_python_environment macpython $VERSION venv
@@ -32,5 +32,5 @@ deploy:
   api_key:
     secure: UU0osuD0FCpEMQtMICaNDUKGLtRw0VlzKXQvkr/gflehQ8V2o3sI6BhULmxnmnwkIfI3P2uQj0pUKKbrJAaKcUbyYgH4d/LikbBPec0P8fARe6F44b7SJNHggQ0OPVRoq1edTypKVz709B0SLCgVPjT9OOG2XoMztSu0+mQOP6s=
   region: ORD
-  container: wheels
+  container: $BUCKET
   skip_cleanup: true
